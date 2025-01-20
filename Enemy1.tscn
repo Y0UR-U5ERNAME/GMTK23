@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://enemy1.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "player_controlled",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "regular",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "soulless",
+"speed": 4.0
+} ]
+
+[node name="Enemy1" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 97
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -2 )
+scale = Vector2( 0.708333, 0.708333 )
+polygon = PoolVector2Array( -5.64706, -11.2941, -11.2941, -2.82353, -11.2941, 11.2941, 11.2941, 11.2941, 11.2941, -2.82353, 5.64706, -11.2941 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+frames = SubResource( 6 )
+animation = "regular"
+frame = 1
+playing = true

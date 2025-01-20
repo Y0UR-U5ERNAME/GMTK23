@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://music.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Music.gd" type="Script" id=2]
+[ext_resource path="res://music_off.tres" type="Resource" id=3]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
+music_off = ExtResource( 3 )
